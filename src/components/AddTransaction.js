@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 // import axois from 'axois';
 import {
     Form,
@@ -28,32 +28,46 @@ function AddTransaction() {
     //     }
     // }
     // )
-    const layout = {
-        labelCol: {
-          span: 6,
-        },
-        wrapperCol: {
-          span: 12,
-        },
-      };
     
-      const tailLayout = {
-        wrapperCol: {
-          offset: 6,
-          span: 12,
-        },
-      };
+    // const layout = {
+    //     labelCol: {
+    //       span: 4,
+    //     },
+    //     wrapperCol: {
+    //       span: 8,
+    //     },
+    //   };
+    
+    // const tailLayout = {
+    //     wrapperCol: {
+    //       offset: 4,
+    //       span: 8,
+    //     },
+    //   };
 
-      function handleAddTransaction(e){
-          console.log(e)
-      };
+    const [formData, setFormData] = useState("");
+
+    // const [formStatusType, setFormStatusType] = useState("");
+
+    // const [formStatus, setFormStatus] = useState(null);
+
+    const handleChange = (e) => {
+
+        setFormData({
+    
+          ...formData,
+    
+    
+        });
+    };
+
     return (
         <>
-            <Form
+            <h1>Make a Transaction</h1>
+            {/* <Form
                 {...layout}
                 onFinish={handleAddTransaction}
             >
-            
                 <Form.Item
                     label="Customer ID"
                     name="custID"
@@ -66,8 +80,36 @@ function AddTransaction() {
                 >
                     <Input />
                 </Form.Item>
-
-            </Form>
+                <Form.Item
+                    label="Account Key"
+                    name="accountKey"
+                    rules={[
+                        {
+                            required: true,
+                            message: 'Please input account key!',
+                        }
+                    ]}
+                >
+                    <Input />
+                </Form.Item>
+                <Form.Item
+                    {...tailLayout}
+                >
+                    <Button type="primary" htmlType="submit">
+                        Submit
+                    </Button>
+                </Form.Item>
+            </Form> */}
+            <form>
+                <div class="mb-3">
+                    <label for="custID" class="form-label">Customer ID</label>
+                    <input type="text" id="custID"></input>
+                </div>
+                <div class="mb-3">
+                    <label for="custID" class="form-label">Customer ID</label>
+                    <input type="text" id="custID"></input>
+                </div>
+            </form>
         </>
     )
 }
