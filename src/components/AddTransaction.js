@@ -28,86 +28,67 @@ function AddTransaction() {
     //     }
     // }
     // )
-    
-    // const layout = {
-    //     labelCol: {
-    //       span: 4,
-    //     },
-    //     wrapperCol: {
-    //       span: 8,
-    //     },
-    //   };
-    
-    // const tailLayout = {
-    //     wrapperCol: {
-    //       offset: 4,
-    //       span: 8,
-    //     },
-    //   };
+    const initialFormData = Object.freeze({
+        custID: "",
+        accountKey: "",
+        firstName: "",
+        lastName: "",
+        nric: "",
+        age: null,
+        phoneNumber: null,
+        email: "",
+    })
 
-    const [formData, setFormData] = useState("");
+    const [formData, setFormData] = useState(initialFormData);
 
     // const [formStatusType, setFormStatusType] = useState("");
 
     // const [formStatus, setFormStatus] = useState(null);
 
     const handleChange = (e) => {
-
         setFormData({
-    
           ...formData,
-    
-    
+          [e.target.name]: e.target.value.trim(),
         });
     };
+
+    const handleSubmit
 
     return (
         <>
             <h1>Make a Transaction</h1>
-            {/* <Form
-                {...layout}
-                onFinish={handleAddTransaction}
-            >
-                <Form.Item
-                    label="Customer ID"
-                    name="custID"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input customer ID!',
-                        }
-                    ]}
-                >
-                    <Input />
-                </Form.Item>
-                <Form.Item
-                    label="Account Key"
-                    name="accountKey"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input account key!',
-                        }
-                    ]}
-                >
-                    <Input />
-                </Form.Item>
-                <Form.Item
-                    {...tailLayout}
-                >
-                    <Button type="primary" htmlType="submit">
-                        Submit
-                    </Button>
-                </Form.Item>
-            </Form> */}
             <form>
                 <div class="mb-3">
                     <label for="custID" class="form-label">Customer ID</label>
                     <input type="text" id="custID"></input>
                 </div>
                 <div class="mb-3">
-                    <label for="custID" class="form-label">Customer ID</label>
-                    <input type="text" id="custID"></input>
+                    <label for="accountKey" class="form-label">Account Key</label>
+                    <input type="text" id="accountKey"></input>
+                </div>
+                <div class="mb-3">
+                    <label for="firstName" class="form-label">First Name</label>
+                    <input type="text" id="firstName"></input>
+                </div>
+                <div class="mb-3">
+                    <label for="lastName" class="form-label">Last Name</label>
+                    <input type="text" id="lastName"></input>
+                </div>
+                <div class="mb-3">
+                    <label for="nric" class="form-label">NRIC</label>
+                    <input type="text" id="nric"></input>
+                </div>
+                <div class="mb-3">
+                    <label for="age" class="form-label">Age</label>
+                    <input type="text" id="age"></input>
+                </div>
+                <div class="mb-3">
+                    <label for="phoneNumber" class="form-label">Phone Number</label>
+                    <input type="text" id="phoneNumber"></input>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="text" id="email"></input>
                 </div>
             </form>
         </>
