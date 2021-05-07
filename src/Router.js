@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { Login } from './components/Login'
+import ViewTransaction from './components/viewTransaction'
 // import TodoPage from "./components/todoPage";
 
 export default function Router() {
@@ -13,7 +14,7 @@ export default function Router() {
       const DefaultContainer = () => (
         <div>
           <div className="container">
-            {/* <Route path="/todo" component={TodoPage} /> */}
+            { <Route path="/viewtransactions" component={ViewTransaction} /> }
           </div>
         </div>
       );
@@ -25,7 +26,7 @@ export default function Router() {
           <Switch>
             <Route exact path="/" component={LoginContainer} />
             <Route component={DefaultContainer} />
-            {/* <Route path="/todo" component={TodoPage} /> */}
+            { <Route path="/viewtransactions" component={ViewTransaction} /> }
           </Switch>
         </div>
       </BrowserRouter>
