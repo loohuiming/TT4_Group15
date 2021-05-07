@@ -23,6 +23,30 @@ function AddTransaction() {
         console.log(formData);
     };
 
+    // const getAccountBalance = async () => {
+    //     const data = {custID: 15, accountKey: "owg0o82i-kaqt-7qfx-wrz6-2v0m8ey6tio"}
+    //     try {
+    //         const accountDetailsAPI =
+    //             "https://ipllrj2mq8.execute-api.ap-southeast-1.amazonaws.com/techtrek/accounts";
+
+    //         fetch(accountDetailsAPI, {
+    //             method: "POST",
+    //             headers: {
+    //                 Accept: "application/json",
+    //                 "Content-Type": "application/json",
+    //                 "X-API-Key": "Qjstc0HrUl4agLzgkROfI9XqteNBxvdM5B8x0jWO",
+    //             },
+    //             body: JSON.stringify(data),
+    //         })
+    //             .then((response) => response.json())
+    //             .then((json) => {
+    //                 console.log(response)
+    //             });
+    //     } catch (e) {
+    //         console.error(e.message);
+    //     }
+    // };
+
     const handleSubmit = () => {
         const data = { ...formData };
         data.custID = parseInt(data.custID);
@@ -64,29 +88,49 @@ function AddTransaction() {
 
     return (
         <>
-            <h1>Make a Transaction</h1>
-            <div>
-                <div className={notificationClass}>alert message</div>
-                <div className="form-group">
-                    <label htmlFor="payeeID">Payee ID</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        name="payeeID"
-                        placeholder=""
-                        onChange={handleChange}
-                    />
+            <h1>Transfer to Payee</h1>
+            <div className={notificationClass}>alert message</div>
+            <div>  
+                <div class="card">
+                    <div class="card-body">
+                        <p><h5>TRANSFERRING FROM</h5></p> 
+                        <p><label>Customer ID: </label>{initialFormData.custID}</p>
+                        <p><label>Account Key: </label>{initialFormData.accountKey}</p>
+                    </div>
                 </div>
-                <div className="form-group">
-                    <label htmlFor="amount">Amount</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        name="amount"
-                        placeholder=""
-                        onChange={handleChange}
-                    />
+
+                <div class="card">
+                    <div class="card-body">
+                        <p><h5>TRANSFERRING TO</h5></p>
+                        <div className="form-group">
+                            <label htmlFor="payeeID">Payee ID</label>
+                            <input
+                                type="number"
+                                className="form-control"
+                                name="payeeID"
+                                placeholder=""
+                                onChange={handleChange}
+                            />
+                        </div>
+
+                    </div>
                 </div>
+
+                <div class="card text-white bg-dark mb-3">
+                    <div class="card-body">
+                        <div className="form-group">
+                        <label htmlFor="amount">Payee Gets</label>
+                        <input
+                            type="number"
+                            className="form-control"
+                            name="amount"
+                            placeholder=""
+                            onChange={handleChange}
+                        />
+                        </div>
+                    </div>
+                </div>
+
                 <div className="form-group">
                     <label htmlFor="eGift">eGift</label>
 
@@ -106,12 +150,14 @@ function AddTransaction() {
                     />
                 </div>
 
+                <br />
+
                 <button
                     type="submit"
                     className="btn btn-success"
                     onClick={() => handleSubmit()}
                 >
-                    Make a transaction
+                    Confirm Transaction
                 </button>
             </div>
         </>
