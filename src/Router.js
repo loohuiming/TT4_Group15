@@ -1,14 +1,14 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Balance from './components/Balance'
-import ViewTransaction from './components/viewTransaction'
+//import ViewTransaction from './components/viewTransaction'
 import Login from './components/Login';
 import AddTransaction from './components/AddTransaction';
 
 export default function Router() {
     const LoginContainer = () => (
         <div className="container">
-          <Route exact path="/" component={Balance} />
+          <Route exact path="/" component={Login} />
         </div>
       );
 
@@ -16,7 +16,7 @@ export default function Router() {
         <div>
           <div className="container">
             {<Route path="/balance" component={Balance} />}
-            <Route path="/viewtransactions" component={ViewTransaction} />
+//            <Route path="/viewtransactions" component={ViewTransaction} />
             <Route path="/addTransaction" component={AddTransaction} />
           </div>
         </div>
@@ -30,7 +30,7 @@ export default function Router() {
             <Route exact path="/" component={LoginContainer} />
             <Route component={DefaultContainer} />
             {<Route path="/balance" component={Balance} />}
-            <Route path="/viewtransactions" component={ViewTransaction} />
+ //           <Route path="/viewtransactions" component={ViewTransaction} />
             <Route path="/addTransaction" component={AddTransaction} />
           </Switch>
         </div>
