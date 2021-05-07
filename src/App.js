@@ -1,5 +1,5 @@
 import Router from './Router';
-import DBSLogo from './dbs-logo.png';
+import DBSLogo from './dbs-logo.jpg';
 
 function App() {
   return (
