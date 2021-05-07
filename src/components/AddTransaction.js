@@ -102,7 +102,7 @@ function AddTransaction() {
                 <div className="form-group">
                     <label htmlFor="payeeID">Payee ID</label>
                     <input
-                        type="text"
+                        type="number"
                         className="form-control"
                         name="payeeID"
                         placeholder=""
@@ -113,7 +113,7 @@ function AddTransaction() {
                 <div className="form-group">
                     <label htmlFor="amount">Payee Gets</label>
                     <input
-                        type="text"
+                        type="number"
                         className="form-control"
                         name="amount"
                         placeholder=""
