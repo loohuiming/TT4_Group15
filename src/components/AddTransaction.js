@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,  } from "react";
 
 function AddTransaction() {
     const initialFormData = Object.freeze({
@@ -22,6 +22,30 @@ function AddTransaction() {
         });
         console.log(formData);
     };
+
+    // const getAccountBalance = async () => {
+    //     const data = {custID: 15, accountKey: "owg0o82i-kaqt-7qfx-wrz6-2v0m8ey6tio"}
+    //     try {
+    //         const accountDetailsAPI =
+    //             "https://ipllrj2mq8.execute-api.ap-southeast-1.amazonaws.com/techtrek/accounts";
+
+    //         fetch(accountDetailsAPI, {
+    //             method: "POST",
+    //             headers: {
+    //                 Accept: "application/json",
+    //                 "Content-Type": "application/json",
+    //                 "X-API-Key": "Qjstc0HrUl4agLzgkROfI9XqteNBxvdM5B8x0jWO",
+    //             },
+    //             body: JSON.stringify(data),
+    //         })
+    //             .then((response) => response.json())
+    //             .then((json) => {
+    //                 console.log(response)
+    //             });
+    //     } catch (e) {
+    //         console.error(e.message);
+    //     }
+    // };
 
     const handleSubmit = () => {
         const data = { ...formData };
@@ -64,9 +88,17 @@ function AddTransaction() {
 
     return (
         <>
-            <h1>Make a Transaction</h1>
-            <div>
-                <div className={notificationClass}>alert message</div>
+            <h1>Transfer to Payee</h1>
+            <div className={notificationClass}>alert message</div>
+            <div>  
+                <div class="card text-white bg-dark">
+                    <div class="card-body">
+                        <p>TRANSFERRING FROM</p> 
+                        <p><label>Customer ID: </label>{initialFormData.custID}</p>
+                        <p><label>Account Key: </label>{initialFormData.accountKey}</p>
+                    </div>
+                </div>
+
                 <div className="form-group">
                     <label htmlFor="payeeID">Payee ID</label>
                     <input
@@ -77,8 +109,9 @@ function AddTransaction() {
                         onChange={handleChange}
                     />
                 </div>
+
                 <div className="form-group">
-                    <label htmlFor="amount">Amount</label>
+                    <label htmlFor="amount">Payee Gets</label>
                     <input
                         type="text"
                         className="form-control"
@@ -106,12 +139,14 @@ function AddTransaction() {
                     />
                 </div>
 
+                <br />
+
                 <button
                     type="submit"
                     className="btn btn-success"
                     onClick={() => handleSubmit()}
                 >
-                    Make a transaction
+                    Confirm Transaction
                 </button>
             </div>
         </>
