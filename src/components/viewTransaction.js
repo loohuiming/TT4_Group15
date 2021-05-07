@@ -21,7 +21,7 @@ class ViewTransaction extends React.Component{
             return 'data'
         })
         }
-    
+
     // json2Table(json) {
     //     let cols = Object.keys(json[0]);
     //     let headerRow = cols
@@ -42,14 +42,14 @@ class ViewTransaction extends React.Component{
     //                 ${rows}
     //             <tbody>
     //         <table>`;
-        
+
     //     return table;
     //     }
 
     render(){
         return(
             <div>
-                <p>{getData()}</p>
+                {/* <p>{getData()}</p> */}
             </div>
         )
     }

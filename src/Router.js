@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Balance from './components/Balance'
 import ViewTransaction from './components/viewTransaction'
-import { Login } from './components/Login';
+import Login from './components/Login';
 import AddTransaction from './components/AddTransaction';
 
 export default function Router() {
@@ -11,7 +11,7 @@ export default function Router() {
           <Route exact path="/" component={Balance} />
         </div>
       );
-    
+
       const DefaultContainer = () => (
         <div>
           <div className="container">
@@ -35,5 +35,5 @@ export default function Router() {
           </Switch>
         </div>
       </BrowserRouter>
-    )
+    );
 }

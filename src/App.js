@@ -5,10 +5,9 @@ import DBSLogo from './dbs-logo.jpg';
 function App() {
   return (
     <>
-     <Router/>
+      <Router />
     </>
-  )
+  );
 }
 
 export default App;
-
