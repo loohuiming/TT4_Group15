@@ -38,6 +38,7 @@ function Login() {
         sessionStorage.setItem('accountKey', res.data['accountKey']);
         history.replace('/');
         console.log('success');
+        history.push('/Balance');
       })
       .catch((error) => {
         alert('You have entered the wrong email or username.');
