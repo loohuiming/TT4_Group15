@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { Login } from './components/Login'
+import Login from "./components/Login";
 // import TodoPage from "./components/todoPage";
 
 export default function Router() {
@@ -9,7 +9,7 @@ export default function Router() {
           <Route exact path="/" component={Login} />
         </div>
       );
-    
+
       const DefaultContainer = () => (
         <div>
           <div className="container">
