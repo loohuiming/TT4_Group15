@@ -1,8 +1,8 @@
-import React, { Component, useContext } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
-function LoginForm() {
+function Login() {
   const [userName, setUsername] = React.useState();
   const [userPass, setPassword] = React.useState();
 
@@ -25,6 +25,7 @@ function LoginForm() {
       .post('https://ipllrj2mq8.execute-api.ap-southeast-1.amazonaws.com/techtrek/login', JSON.stringify({ userName, userPass }), {
         headers: {
           'x-api-key': 'Qjstc0HrUl4agLzgkROfI9XqteNBxvdM5B8x0jWO',
+          'Accept': 'application/json',
           'Content-Type': 'application/json'
         }
       })
@@ -35,6 +36,7 @@ function LoginForm() {
         sessionStorage.setItem('expiry', expiry);
         sessionStorage.setItem('custID', res.data['custID']);
         history.replace('/');
+        console.log('success');
       })
       .catch((error) => {
         alert('You have entered the wrong email or username.');
@@ -62,4 +64,4 @@ function LoginForm() {
   );
 }
 
-export default LoginForm;
+export default Login;
