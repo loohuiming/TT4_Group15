@@ -25,7 +25,7 @@ function Login() {
       .post('https://ipllrj2mq8.execute-api.ap-southeast-1.amazonaws.com/techtrek/login', JSON.stringify({ userName, userPass }), {
         headers: {
           'x-api-key': 'Qjstc0HrUl4agLzgkROfI9XqteNBxvdM5B8x0jWO',
-          'Accept': 'application/json',
+          Accept: 'application/json',
           'Content-Type': 'application/json'
         }
       })
@@ -35,6 +35,7 @@ function Login() {
         expiry.setSeconds(expiry.getSeconds() + 60);
         sessionStorage.setItem('expiry', expiry);
         sessionStorage.setItem('custID', res.data['custID']);
+        sessionStorage.setItem('accountKey', res.data['accountKey']);
         history.replace('/');
         console.log('success');
       })
