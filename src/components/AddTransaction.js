@@ -1,42 +1,35 @@
 import React, { useEffect, useState } from 'react';
-// import axois from 'axois';
-import {
-    Form,
-    Input,
-    Button,
-  } from 'antd';
+import axios from 'axios';
 
 function AddTransaction() {
-    // useEffect(() => {
-    //     async function postTransaction() {
-    //         let transactionAPI = 'https://ipllrj2mq8.execute-api.ap-southeast-1.amazonaws.com/techtrek/transactions/add'
-    //         axios.defaults.headers.common = {
-    //             "X-API-Key": "Qjstc0HrUl4agLzgkROfI9XqteNBxvdM5B8x0jWO",
-    //         };
-    //         axios.post(transactionAPI, {
-    //             "custID": "",
-    //             "accountKey": "",
-    //             "payeeID": "",
-    //             "amount": "",
-    //             "eGift": "",
-    //             "message": "",
-    //         }).then(function (response) {
-    //             console.log(response)
-    //         }).catch(function (error) {
-    //             console.log(error);
-    //         });
-    //     }
-    // }
-    // )
+    useEffect(() => {
+        async function postTransaction() {
+            let transactionAPI = 'https://ipllrj2mq8.execute-api.ap-southeast-1.amazonaws.com/techtrek/transactions/add'
+            axios.defaults.headers.common = {
+                "X-API-Key": "Qjstc0HrUl4agLzgkROfI9XqteNBxvdM5B8x0jWO",
+            };
+            axios.post(transactionAPI, {
+                "custID": null,
+                "accountKey": "",
+                "payeeID": null,
+                "amount": null,
+                "eGift": false,
+                "message": "",
+            }).then(function (response) {
+                console.log(response)
+            }).catch(function (error) {
+                console.log(error);
+            });
+        }
+    }
+    )
     const initialFormData = Object.freeze({
-        custID: "",
-        accountKey: "",
-        firstName: "",
-        lastName: "",
-        nric: "",
-        age: null,
-        phoneNumber: null,
-        email: "",
+        "custID": null,
+        "accountKey": "",
+        "payeeID": null,
+        "amount": null,
+        "eGift": false,
+        "message": "",
     })
 
     const [formData, setFormData] = useState(initialFormData);
@@ -45,14 +38,12 @@ function AddTransaction() {
 
     // const [formStatus, setFormStatus] = useState(null);
 
-    const handleChange = (e) => {
+    const handleSubmit = (e) => {
         setFormData({
           ...formData,
           [e.target.name]: e.target.value.trim(),
         });
     };
-
-    const handleSubmit
 
     return (
         <>
@@ -66,31 +57,31 @@ function AddTransaction() {
                     <label for="accountKey" class="form-label">Account Key</label>
                     <input type="text" id="accountKey"></input>
                 </div>
-                <div class="mb-3">
-                    <label for="firstName" class="form-label">First Name</label>
-                    <input type="text" id="firstName"></input>
+                <div class="mb-2">
+                    <label for="payeeID" class="form-label">Payee ID</label>
+                    <input type="text" id="payeeID"></input>
                 </div>
-                <div class="mb-3">
-                    <label for="lastName" class="form-label">Last Name</label>
-                    <input type="text" id="lastName"></input>
+                <div class="mb-2">
+                    <label for="amount" class="form-label">Amount</label>
+                    <input type="text" id="amount"></input>
                 </div>
-                <div class="mb-3">
-                    <label for="nric" class="form-label">NRIC</label>
-                    <input type="text" id="nric"></input>
+                <div class="mb-2">
+                    <label for="eGift" class="form-label">eGift</label>
+                    <input type="text" id="eGift"></input>
+                    {/* true false */}
                 </div>
-                <div class="mb-3">
-                    <label for="age" class="form-label">Age</label>
-                    <input type="text" id="age"></input>
-                </div>
-                <div class="mb-3">
-                    <label for="phoneNumber" class="form-label">Phone Number</label>
-                    <input type="text" id="phoneNumber"></input>
-                </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="text" id="email"></input>
+                <div class="mb-2">
+                    <label for="message" class="form-label">Message</label>
+                    <input type="text" id="message"></input>
                 </div>
             </form>
+            <button
+                type="submit"
+                className="button is-link"
+                onClick={() => handleSubmit()}
+            >
+                Make a transaction
+            </button>
         </>
     )
 }
