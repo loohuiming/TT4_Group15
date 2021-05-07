@@ -17,7 +17,7 @@ class Balance extends Component {
     // afterTransaction = () => {
     //     this.setState({amount: this.state.amount - 1});
     // };
-    
+
 //deduct amount after transaction has been made
 
     render() { 
