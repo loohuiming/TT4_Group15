@@ -1,4 +1,4 @@
-import React, { useState,  } from "react";
+import React, { useState } from "react";
 
 function AddTransaction() {
     const initialFormData = Object.freeze({
@@ -91,35 +91,46 @@ function AddTransaction() {
             <h1>Transfer to Payee</h1>
             <div className={notificationClass}>alert message</div>
             <div>  
-                <div class="card text-white bg-dark">
+                <div class="card">
                     <div class="card-body">
-                        <p>TRANSFERRING FROM</p> 
+                        <p><h5>TRANSFERRING FROM</h5></p> 
                         <p><label>Customer ID: </label>{initialFormData.custID}</p>
                         <p><label>Account Key: </label>{initialFormData.accountKey}</p>
                     </div>
                 </div>
 
-                <div className="form-group">
-                    <label htmlFor="payeeID">Payee ID</label>
-                    <input
-                        type="number"
-                        className="form-control"
-                        name="payeeID"
-                        placeholder=""
-                        onChange={handleChange}
-                    />
+                <div class="card">
+                    <div class="card-body">
+                        <p><h5>TRANSFERRING TO</h5></p>
+                        <div className="form-group">
+                            <label htmlFor="payeeID">Payee ID</label>
+                            <input
+                                type="number"
+                                className="form-control"
+                                name="payeeID"
+                                placeholder=""
+                                onChange={handleChange}
+                            />
+                        </div>
+
+                    </div>
                 </div>
 
-                <div className="form-group">
-                    <label htmlFor="amount">Payee Gets</label>
-                    <input
-                        type="number"
-                        className="form-control"
-                        name="amount"
-                        placeholder=""
-                        onChange={handleChange}
-                    />
+                <div class="card text-white bg-dark mb-3">
+                    <div class="card-body">
+                        <div className="form-group">
+                        <label htmlFor="amount">Payee Gets</label>
+                        <input
+                            type="number"
+                            className="form-control"
+                            name="amount"
+                            placeholder=""
+                            onChange={handleChange}
+                        />
+                        </div>
+                    </div>
                 </div>
+
                 <div className="form-group">
                     <label htmlFor="eGift">eGift</label>
 
