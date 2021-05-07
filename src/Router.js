@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import ViewTransaction from './components/viewTransaction'
 import Login from './components/Login';
+import AddTransaction from './components/AddTransaction';
 
 export default function Router() {
     const LoginContainer = () => (
@@ -12,6 +14,8 @@ export default function Router() {
       const DefaultContainer = () => (
         <div>
           <div className="container">
+            <Route path="/viewtransactions" component={ViewTransaction} />
+            <Route path="/addTransaction" component={AddTransaction} />
           </div>
         </div>
       );
@@ -23,6 +27,8 @@ export default function Router() {
           <Switch>
             <Route exact path="/" component={LoginContainer} />
             <Route component={DefaultContainer} />
+            <Route path="/viewtransactions" component={ViewTransaction} />
+            <Route path="/addTransaction" component={AddTransaction} />
           </Switch>
         </div>
       </BrowserRouter>
